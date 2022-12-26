@@ -24,7 +24,7 @@ body {
 }
 
 body {
-  font-family: $ff-regular, sans-serif;
+  font-family: $ff-regular, $ff-sans-serif;
   line-height: 1.5;
   transition: 0.2s ease all;
   -webkit-font-smoothing: antialiased;
@@ -33,8 +33,8 @@ body {
 
 @media (prefers-color-scheme: dark) {
   body {
-    color: #eee;
-    background: #121212;
+    color: rgb(238, 238, 238);
+    background: rgb(18, 18, 18);
   }
 }
 
