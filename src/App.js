@@ -3,7 +3,7 @@ import { Counter } from "./features/counter/Counter";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ width: "100%" }}>
       <header className="App-header">
         <Counter />
       </header>
