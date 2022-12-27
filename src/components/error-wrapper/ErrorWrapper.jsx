@@ -1,4 +1,5 @@
 import React from "react";
+import "./ErrorWrapper.scss";
 
 export default function ErrorWrapper({ error }) {
   return (

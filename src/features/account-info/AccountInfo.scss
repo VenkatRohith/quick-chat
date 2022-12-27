@@ -1,0 +1,43 @@
+@import "../../assets/scss/partial";
+
+.accountInfo__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .backTo {
+    align-self: flex-start;
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    font-size: $fs-14;
+
+    i {
+      padding-top: 0.15em;
+      font-size: $fs-18;
+    }
+  }
+
+  .profilePic i {
+    font-size: $fs-64;
+  }
+
+  .accountName {
+    display: flex;
+    gap: 0.5em;
+
+    h2 {
+      font-size: $fs-20;
+      color: #152c44;
+    }
+    .settings {
+      font-size: $fs-16;
+    }
+  }
+
+  .role {
+    font-size: $fs-14;
+    color: #3f5975;
+    font-weight: $fw-bold;
+  }
+}
