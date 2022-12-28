@@ -28,7 +28,6 @@
 
     h2 {
       font-size: $fs-20;
-      color: #152c44;
     }
     .settings {
       font-size: $fs-16;
@@ -37,7 +36,29 @@
 
   .role {
     font-size: $fs-14;
-    color: #3f5975;
+    color: rgb(63, 89, 117);
     font-weight: $fw-bold;
+    margin-bottom: 0.5em;
+  }
+
+  .switchWrapper {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+
+    .statusLabel {
+      color: rgb(63, 90, 118);
+      font-weight: $fw-bold;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .role {
+      color: rgb(167, 167, 167);
+    }
+
+    .switchWrapper .statusLabel {
+      color: rgb(175, 175, 175);
+    }
   }
 }

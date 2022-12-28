@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Switch from "../../components/switch/Switch";
 import "./AccountInfo.scss";
 
 function AccountInfo({ handleHideAccountInfo }) {
+  const [checked, setChecked] = useState(false);
   return (
     <div className="accountInfo__container">
       <button className="iconWrapper backTo" onClick={handleHideAccountInfo}>
@@ -19,7 +20,14 @@ function AccountInfo({ handleHideAccountInfo }) {
         </button>
       </div>
       <p className="role">Lead UX/UI Designer</p>
-      <Switch />
+      <div className="switchWrapper">
+        <Switch
+          name="status"
+          handleToggleChange={({ target }) => setChecked(target.checked)}
+          checked={checked}
+        />
+        <label className="statusLabel">{checked ? "Active" : "Inactive"}</label>
+      </div>
     </div>
   );
 }
