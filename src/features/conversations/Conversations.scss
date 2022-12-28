@@ -1,0 +1,60 @@
+@import "../../assets/scss/partial";
+
+.conversationContainer {
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 0 0.5em 0 0;
+  height: 100%;
+
+  .conversationItem {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em 1em;
+    border-radius: 0.75em;
+
+    .profilePic {
+      max-height: 2.5em;
+      img {
+        width: 2.5em;
+        border-radius: 50%;
+      }
+
+      i {
+        font-size: $fs-40;
+        line-height: 0.5em;
+      }
+    }
+
+    .rightSection {
+      flex-grow: 2;
+      display: flex;
+      justify-content: space-between;
+
+      .userName {
+        color: rgb(53, 81, 110);
+      }
+
+      .userName-selected {
+        color: rgb(16, 39, 63);
+        font-weight: $fw-bold;
+      }
+
+      .messageCount {
+        font-size: $fs-14;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        background-color: rgb(252 86 85);
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .conversationItem-selected {
+    background-color: rgb(231, 236, 243);
+  }
+}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AccountInfo from "../features/account-info/AccountInfo";
+import Conversations from "../features/conversations/Conversations";
 import Header from "./Header";
 import "./Layout.scss";
 
@@ -14,7 +15,7 @@ function Layout() {
             handleHideAccountInfo={() => setShowAccountInfo(false)}
           />
         ) : (
-          <p>Chats Placeholder</p>
+          <Conversations />
         )}
       </div>
     </div>
