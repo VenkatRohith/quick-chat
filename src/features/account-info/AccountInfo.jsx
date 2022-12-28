@@ -7,16 +7,16 @@ function AccountInfo({ handleHideAccountInfo }) {
   return (
     <div className="accountInfo__container">
       <button className="iconWrapper backTo" onClick={handleHideAccountInfo}>
-        <i class="bi bi-arrow-left"></i>
+        <i className="bi bi-arrow-left"></i>
         Back to Chats
       </button>
       <button className="iconWrapper profilePic">
-        <i class="bi bi-person-circle"></i>
+        <i className="bi bi-person-circle"></i>
       </button>
       <div className="accountName">
         <h2>Bill Bradford </h2>
         <button className="iconWrapper settings">
-          <i class="bi bi-gear"></i>
+          <i className="bi bi-gear"></i>
         </button>
       </div>
       <p className="role">Lead UX/UI Designer</p>
