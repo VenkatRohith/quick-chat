@@ -2,20 +2,19 @@ import React, { useState } from "react";
 import Switch from "../../components/switch/Switch";
 import "./AccountInfo.scss";
 
-function AccountInfo({ handleHideAccountInfo }) {
-  const [checked, setChecked] = useState(false);
+function AccountInfo({ handleHideAccountInfo, showSettingsModal }) {
+  const [checked, setChecked] = useState(true);
   return (
     <div className="accountInfo__container">
       <button className="iconWrapper backTo" onClick={handleHideAccountInfo}>
         <i className="bi bi-arrow-left"></i>
-        Back to Chats
       </button>
       <button className="iconWrapper profilePic">
         <i className="bi bi-person-circle"></i>
       </button>
       <div className="accountName">
-        <h2>Bill Bradford </h2>
-        <button className="iconWrapper settings">
+        <h2>Bill Bradford</h2>
+        <button className="iconWrapper settings" onClick={showSettingsModal}>
           <i className="bi bi-gear"></i>
         </button>
       </div>

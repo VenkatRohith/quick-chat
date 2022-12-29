@@ -1,103 +1,6 @@
 import React, { useState } from "react";
 import "./Conversations.scss";
-
-const data = [
-  {
-    name: "Henry Boyd",
-    messageCount: 0,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=male",
-  },
-  {
-    name: "Martha Curtis",
-    messageCount: 2,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=female",
-  },
-  {
-    name: "Phillip Tucker",
-    messageCount: 0,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=male",
-  },
-  {
-    name: "Christine Reid",
-    messageCount: 0,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=female",
-  },
-  {
-    name: "Jerry Guzman",
-    messageCount: 0,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=male",
-  },
-  {
-    name: "Russell Williams",
-    messageCount: 0,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=male",
-  },
-  {
-    name: "Henry Boyd",
-    messageCount: 0,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=male",
-  },
-  {
-    name: "Martha Curtis",
-    messageCount: 2,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=female",
-  },
-  {
-    name: "Phillip Tucker",
-    messageCount: 0,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=male",
-  },
-  {
-    name: "Christine Reid",
-    messageCount: 0,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=female",
-  },
-  {
-    name: "Jerry Guzman",
-    messageCount: 0,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=male",
-  },
-  {
-    name: "Russell Williams",
-    messageCount: 0,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=male",
-  },
-  {
-    name: "Russell Williams",
-    messageCount: 0,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=male",
-  },
-  {
-    name: "Henry Boyd",
-    messageCount: 0,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=male",
-  },
-  {
-    name: "Martha Curtis",
-    messageCount: 2,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=female",
-  },
-  {
-    name: "Phillip Tucker",
-    messageCount: 0,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=male",
-  },
-  {
-    name: "Christine Reid",
-    messageCount: 0,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=female",
-  },
-  {
-    name: "Jerry Guzman",
-    messageCount: 0,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=male",
-  },
-  {
-    name: "Russell Williams",
-    messageCount: 0,
-    profilePic: "https://xsgames.co/randomusers/avatar.php?g=male",
-  },
-];
+import { data } from "./mockData";
 
 function Conversation({
   name,
@@ -140,13 +43,18 @@ function ConversationsWrapper({
 }) {
   const [selectedConversation, setSelectedConversation] = useState(-1);
   return (
-    <div className="conversationsContainer">
+    <div
+      className={`conversationsContainer ${
+        isConversationOpen ? "container-expanded" : "container-collapsed"
+      }`}
+    >
       <div
         className="conversationsContainer__header"
         onClick={() => {
           setSelectedConversation(-1);
           handleToggleConversationWrapper();
         }}
+        tabIndex="0"
       >
         <span className="titleWrapper">
           <p className="title">{conversationTitle}</p>
@@ -165,9 +73,7 @@ function ConversationsWrapper({
 
       <div
         className={`conversationsContainer__body ${
-          isConversationOpen
-            ? "conversationsContainer__body-expanded"
-            : "conversationsContainer__body-collapsed"
+          isConversationOpen ? "body-expanded" : "body-collapsed"
         }`}
       >
         <ul className="conversationContainer">
@@ -202,7 +108,7 @@ function Conversations() {
       />
       <ConversationsWrapper
         conversationTitle="Archived Conversations"
-        unseenConversationCount={7}
+        unseenConversationCount={2}
         isConversationOpen={toggleConversationWrapper === "archived"}
         handleToggleConversationWrapper={() =>
           setToggleConversationWrapper((prevVal) =>

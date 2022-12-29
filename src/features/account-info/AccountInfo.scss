@@ -1,4 +1,4 @@
-@import "../../assets/scss/partial";
+@import "../../assets/scss/variables";
 
 .accountInfo__container {
   display: flex;
@@ -10,10 +10,8 @@
     display: flex;
     gap: 0.5em;
     align-items: center;
-    font-size: $fs-14;
 
     i {
-      padding-top: 0.15em;
       font-size: $fs-18;
     }
   }
