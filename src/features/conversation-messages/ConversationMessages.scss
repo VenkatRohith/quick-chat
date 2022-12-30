@@ -1,0 +1,145 @@
+@import "../../assets/scss/variables";
+
+.messagesContainer {
+  //   background-color: rgb(243, 246, 251); //todo -> put in desktop design
+  max-height: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5em;
+  gap: 0.5em;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    overflow-y: auto;
+    height: calc(100% - 2em);
+    padding: 1em 0.5em 0 0.5em;
+
+    .messageWrapper {
+      display: flex;
+      gap: 0.5em;
+      align-items: flex-start;
+      max-width: 80%;
+
+      .profilePic {
+        font-size: $fs-32;
+        line-height: 1.25em;
+        position: relative;
+
+        .profile::after {
+          position: absolute;
+          content: "";
+          width: 0.3125em;
+          height: 0.3125em;
+          border-radius: 50%;
+          bottom: 0.125em;
+          right: 0.015625em;
+          border: 0.03125em solid rgb(255, 255, 255);
+        }
+
+        .profile-active::after {
+          background-color: $success-clr;
+        }
+        .profile-inactive::after {
+          background-color: $warning-clr;
+        }
+      }
+
+      &__descriptionSection {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25em;
+
+        .description {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          border-radius: 0.75em;
+          background-color: rgb(255, 255, 255);
+          color: rgb(88, 88, 88);
+          padding: 0.75em;
+          font-size: $fs-12;
+        }
+
+        .messageTime {
+          font-size: $fs-10;
+          color: rgb(151, 158, 176);
+        }
+      }
+
+      &.selfMessage {
+        align-self: flex-end;
+        .profilePic {
+          order: 2;
+        }
+
+        .messageWrapper__descriptionSection {
+          align-items: flex-end;
+
+          .description {
+            background-color: rgb(26, 35, 60);
+            color: rgb(255, 255, 255);
+          }
+        }
+      }
+    }
+  }
+
+  &__currentMessageWrapper {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    // background-color: rgb(251, 252, 255); //todo -> in desktop design
+    // margin: 0 0.5em 0.5em 0.5em; // todo -> in desktop design
+    border-radius: 0.5em;
+    padding: 0.25em;
+    gap: 0.5em;
+
+    .attachmentIcon {
+      flex-grow: 1;
+      transform: rotate(45deg);
+      outline: none;
+
+      i {
+        line-height: normal;
+      }
+    }
+
+    .inputWrapper {
+      flex-grow: 2;
+
+      .input {
+        font-size: $fs-14;
+      }
+    }
+
+    .sendBtn {
+      flex-grow: 1;
+      padding: 0;
+      border-radius: 0.5em;
+      span {
+        display: flex;
+        gap: 0.25em;
+        justify-content: center;
+
+        p {
+          display: none;
+        }
+
+        .sendIcon i {
+          font-size: $fs-20;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}
+
+//todo -> put in desktop design
+// @media (prefers-color-scheme: dark) {
+//   .messagesContainer {
+//     background-color: rgb(18, 18, 18);
+//   }
+// }

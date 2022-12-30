@@ -26,7 +26,9 @@ function Conversation({
         )}
       </button>
       <span className="rightSection">
-        <p className={`userName${isSelected ? "-selected" : ""}`}>{name}</p>
+        <p className={`userName ${isSelected ? "userName-selected" : ""}`}>
+          {name}
+        </p>
         {messageCount ? (
           <span className="messageCount">{messageCount}</span>
         ) : null}

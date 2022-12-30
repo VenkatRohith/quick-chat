@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Modal from "../components/modal/Modal";
 import AccountInfo from "../features/account-info/AccountInfo";
-import Conversations from "../features/conversations/Conversations";
+import ConversationMessages from "../features/conversation-messages/ConversationMessages";
 import Header from "./Header";
 import "./Layout.scss";
 
@@ -24,7 +24,8 @@ function Layout() {
         <>
           <Header handleShowAccountInfo={() => setShowAccountInfo(true)} />
           <div className="layout__body">
-            <Conversations />
+            {/* <Conversations /> */}
+            <ConversationMessages />
           </div>
         </>
       )}
