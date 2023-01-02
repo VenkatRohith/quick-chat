@@ -8,6 +8,7 @@ function Input({
   className = "",
   value = "",
   handleIconClick,
+  hasEmoji = false,
 }) {
   let inputClassName = "input";
   if (className) inputClassName += ` ${className}`;
@@ -21,13 +22,16 @@ function Input({
         placeholder={placeholder}
         onChange={onChange}
         value={value}
+        autoComplete="off"
       />
-      <button
-        className="iconWrapper inputWrapper__emojiIcon"
-        onClick={handleIconClick}
-      >
-        <i className="bi bi-emoji-smile"></i>
-      </button>
+      {hasEmoji ? (
+        <button
+          className="iconWrapper inputWrapper__emojiIcon"
+          onClick={handleIconClick}
+        >
+          <i className="bi bi-emoji-smile"></i>
+        </button>
+      ) : null}
     </div>
   );
 }

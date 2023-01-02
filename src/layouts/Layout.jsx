@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import Modal from "../components/modal/Modal";
 import AccountInfo from "../features/account-info/AccountInfo";
-import ConversationMessages from "../features/conversation-messages/ConversationMessages";
+//import ConversationMessages from "../features/conversation-messages/ConversationMessages";
+import Conversations from "../features/conversations/Conversations";
+import UserSettings from "../features/user-settings/UserSettings";
 import Header from "./Header";
 import "./Layout.scss";
 
@@ -16,16 +17,17 @@ function Layout() {
             handleHideAccountInfo={() => setShowAccountInfo(false)}
             showSettingsModal={() => setShowSettings(true)}
           />
-          <Modal show={showSettings} onClose={() => setShowSettings(false)}>
-            Modal Content
-          </Modal>
+          <UserSettings
+            showSettings={showSettings}
+            handleCloseSettings={() => setShowSettings(false)}
+          />
         </>
       ) : (
         <>
           <Header handleShowAccountInfo={() => setShowAccountInfo(true)} />
           <div className="layout__body">
-            {/* <Conversations /> */}
-            <ConversationMessages />
+            <Conversations />
+            {/* <ConversationMessages /> */}
           </div>
         </>
       )}

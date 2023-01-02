@@ -1,58 +1,7 @@
 import React, { useState } from "react";
 import Input from "../../components/input/Input";
 import "./ConversationMessages.scss";
-
-const messages = [
-  { message: "Hi Henry!!", messageTime: "9h ago", isMessageFromSelf: true },
-  {
-    message: "How can I help you today?",
-    messageTime: "9h ago",
-    isMessageFromSelf: true,
-  },
-  {
-    message: "Hey Bill, nice to meet you!",
-    messageTime: "5h ago",
-    isMessageFromSelf: false,
-  },
-  {
-    message: "Hope you re doing fine.",
-    messageTime: "5h ago",
-    isMessageFromSelf: false,
-  },
-  {
-    message: "I'm good thanks for asking",
-    messageTime: "5h ago",
-    isMessageFromSelf: true,
-  },
-  {
-    message:
-      "I am interested to know more about your prices and services you offer",
-    messageTime: "5h ago",
-    isMessageFromSelf: false,
-  },
-  {
-    message:
-      "Sure, please click below link to find more useful information https://www.google.com",
-    messageTime: "9h ago",
-    isMessageFromSelf: true,
-  },
-  {
-    message:
-      "Awesome, will get in touch if there's anything unclear. Thanks for now!",
-    messageTime: "5h ago",
-    isMessageFromSelf: false,
-  },
-  {
-    message: "Have a great day",
-    messageTime: "5h ago",
-    isMessageFromSelf: false,
-  },
-  {
-    message: "Thanks buddy, you too as well",
-    messageTime: "5h ago",
-    isMessageFromSelf: true,
-  },
-];
+import { messages } from "./mockData";
 
 function Message({
   message,
@@ -89,13 +38,14 @@ function CurrentMessage() {
         placeholder="Enter your message here"
         onChange={({ target }) => setMessage(target.value)}
         value={message}
+        hasEmoji
       />
       <button className="btn primary sendBtn">
         <span>
           <p>Send</p>
-          <button className="iconWrapper sendIcon" tabIndex="-1">
+          <span className="iconWrapper sendIcon" tabIndex="-1">
             <i className="bi bi-arrow-right-short"></i>
-          </button>
+          </span>
         </span>
       </button>
     </div>
@@ -106,8 +56,8 @@ function ConversationMessages() {
   return (
     <div className="messagesContainer">
       <ul className="messagesContainer__list">
-        {messages.map((message, idx) => (
-          <Message key={idx} {...message} />
+        {messages.map(({ messageId, ...message }) => (
+          <Message key={message.messageId} {...message} />
         ))}
       </ul>
       <CurrentMessage />

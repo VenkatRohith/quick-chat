@@ -79,12 +79,12 @@ function ConversationsWrapper({
         }`}
       >
         <ul className="conversationContainer">
-          {data.map((chat, idx) => (
+          {data.map(({ id, ...chat }) => (
             <Conversation
-              key={idx}
+              key={chat.id}
               {...chat}
-              isSelected={idx === selectedConversation}
-              handleSelectedConversation={() => setSelectedConversation(idx)}
+              isSelected={id === selectedConversation}
+              handleSelectedConversation={() => setSelectedConversation(id)}
             />
           ))}
         </ul>

@@ -8,6 +8,7 @@ function Modal({
   centered = false,
   scrollable = false,
   maxWidth = "auto",
+  title = "",
 }) {
   let modalClassName = "modal",
     modalContentClassName = "modal__content";
@@ -15,7 +16,7 @@ function Modal({
   if (scrollable) modalContentClassName += " scrollable";
   const header = (
     <div className="content__header">
-      <h2 className="header__title">Modal</h2>
+      <h2 className="header__title">{title}</h2>
       <button className="iconWrapper header__icon" onClick={onClose}>
         <i className="bi bi-x-circle"></i>
       </button>
