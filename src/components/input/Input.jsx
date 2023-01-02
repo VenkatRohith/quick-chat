@@ -23,6 +23,7 @@ function Input({
         onChange={onChange}
         value={value}
         autoComplete="off"
+        spellcheck="false"
       />
       {hasEmoji ? (
         <button
