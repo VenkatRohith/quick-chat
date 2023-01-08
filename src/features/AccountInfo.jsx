@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Switch from "../../components/switch/Switch";
+import Switch from "../components/Switch";
 import "./AccountInfo.scss";
 
 function AccountInfo({ handleHideAccountInfo, showSettingsModal }) {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { data } from "../mockData";
 import "./Conversations.scss";
-import { data } from "./mockData";
 
 function Conversation({
   name,

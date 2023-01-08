@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import AccountInfo from "../features/account-info/AccountInfo";
-//import ConversationMessages from "../features/conversation-messages/ConversationMessages";
-import Conversations from "../features/conversations/Conversations";
-import UserSettings from "../features/user-settings/UserSettings";
+import AccountInfo from "../features/AccountInfo";
+//import ConversationMessages from "../features/ConversationMessages";
+import Conversations from "../features/Conversations";
+import UserSettings from "../features/UserSettings";
 import Header from "./Header";
 import "./Layout.scss";
 

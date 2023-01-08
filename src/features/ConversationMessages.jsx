@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Input from "../../components/input/Input";
+import Input from "../components/Input";
+import { messages } from "../mockData";
 import "./ConversationMessages.scss";
-import { messages } from "./mockData";
 
 function Message({
   message,

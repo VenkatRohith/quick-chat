@@ -1,5 +1,5 @@
 import React from "react";
-import "../switch/Switch.scss";
+import "./Switch.scss";
 
 function Switch({ id = "", name = "", handleToggleChange, checked }) {
   const switch_id = id ? id : Date.now();

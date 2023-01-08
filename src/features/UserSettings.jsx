@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Input from "../../components/input/Input";
-import Modal from "../../components/modal/Modal";
+import Input from "../components/Input";
+import Modal from "../components/Modal";
 import "./UserSettings.scss";
 
 function UserSettings({
