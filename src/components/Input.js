@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import "./Input.scss";
 
@@ -36,5 +37,15 @@ function Input({
     </div>
   );
 }
+
+Input.propTypes = {
+  name: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func,
+  className: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  handleIconClick: PropTypes.func,
+  hasEmoji: PropTypes.bool,
+};
 
 export default Input;
