@@ -1,14 +1,19 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Prod CI & CD
+name: Staging CI & CD (Preview)
+concurrency: preview-${{ github.ref }}
 
 on:
-  push:
-    branches: ["main"]
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
 
 jobs:
-  build:
+  deploy-preview:
     runs-on: ubuntu-latest
 
     strategy:
@@ -29,9 +34,10 @@ jobs:
       - run: pnpm run build --if-present
       - run: pnpm test
       - name: Deploy
-        uses: crazy-max/ghaction-github-pages@v4
+        uses: rossjrw/pr-preview-action@v1.4
         with:
-          target_branch: gh-pages
-          build_dir: build
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+          source-dir: .
+          preview-branch: gh-pages
+          umbrella-dir: pr-preview
+          action: auto
+          token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
