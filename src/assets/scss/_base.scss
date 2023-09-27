@@ -29,12 +29,13 @@ body {
   transition: 0.2s ease all;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(247, 249, 252);
 }
 
 @media (prefers-color-scheme: dark) {
   body {
     color: rgb(238, 238, 238);
-    background: rgb(18, 18, 18);
+    background-color: rgb(18, 18, 18);
   }
 }
 
@@ -88,8 +89,31 @@ strong {
   font-weight: $fw-normal;
 }
 
+ul,
+li {
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
 #root {
   display: flex;
   width: 100%;
   height: 100%;
+}
+
+.iconWrapper {
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
 }

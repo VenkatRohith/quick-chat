@@ -1,0 +1,136 @@
+@import "../assets/scss/variables";
+
+.conversationsContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em 0.5em 0.5em 0;
+  overflow: hidden;
+  max-height: calc(100% - 2.5em);
+
+  &.container-collapsed {
+    transition: max-height 0.5s ease-in;
+    max-height: 2.5em;
+  }
+
+  &.container-expanded {
+    transition: max-height 0.5s ease-out;
+    max-height: calc(100% - 2.5em);
+    overflow-y: hidden;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+
+    .titleWrapper {
+      display: flex;
+      gap: 0.75em;
+      align-items: baseline;
+
+      .title {
+        font-size: $fs-14;
+        font-weight: $fw-bold;
+      }
+
+      .count {
+        font-size: $fs-14;
+        font-weight: $fw-bold;
+        color: rgb(12, 35, 60);
+        text-align: center;
+        background-color: rgb(235, 237, 239);
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 50%;
+        line-height: 1.75em;
+      }
+    }
+
+    .arrowIcon {
+      font-size: $fs-12;
+    }
+
+    .arrowIcon-up {
+      transition: transform 0.5s;
+    }
+
+    .arrowIcon-down {
+      transform: rotate(180deg);
+      transition: transform 0.5s;
+    }
+  }
+
+  &__body {
+    overflow-y: auto;
+    &.body-collapsed {
+      transition: height 0.5s ease-in;
+      height: 0;
+      overflow-y: hidden;
+    }
+
+    &.body-expanded {
+      transition: height 0.5s ease-out;
+      height: 100%;
+      overflow-y: auto;
+    }
+  }
+}
+
+.conversationContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5em;
+
+  .conversationItem {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em;
+    border-radius: 0.75em;
+
+    .profilePic {
+      max-height: 2.5em;
+      img {
+        width: 2.5em;
+        border-radius: 50%;
+      }
+
+      i {
+        font-size: $fs-40;
+        line-height: 0.5em;
+      }
+    }
+
+    .rightSection {
+      flex-grow: 2;
+      display: flex;
+      justify-content: space-between;
+
+      .userName {
+        color: rgb(53, 81, 110);
+        font-size: $fs-14;
+      }
+
+      .userName-selected {
+        color: rgb(16, 39, 63);
+        font-weight: $fw-bold;
+      }
+
+      .messageCount {
+        font-size: $fs-12;
+        color: rgb(255, 255, 255);
+        text-align: center;
+        background-color: rgb(252 86 85);
+        width: 1.5em;
+        height: 1.5em;
+        border-radius: 50%;
+        line-height: 1.75em;
+      }
+    }
+  }
+
+  .conversationItem-selected {
+    background-color: rgb(231, 236, 243);
+  }
+}
