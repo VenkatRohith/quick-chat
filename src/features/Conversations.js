@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Header from "../layout/Header";
 import { data } from "../mockData";
+import ConversationMessages from "./ConversationMessages";
 import "./Conversations.scss";
 
 function Conversation({
@@ -8,15 +10,21 @@ function Conversation({
   profilePic,
   isSelected,
   handleSelectedConversation,
+  handleOpenConversation,
+  isFocusable,
 }) {
   return (
     <li
       className={`conversationItem ${
         isSelected ? "conversationItem-selected" : ""
       }`}
-      tabIndex="0"
-      onClick={handleSelectedConversation}
+      tabIndex={isFocusable ? "0" : "-1"}
+      onClick={() => {
+        handleSelectedConversation();
+        handleOpenConversation();
+      }}
       onFocus={handleSelectedConversation}
+      onKeyUp={({ key }) => key === "Enter" && handleOpenConversation()}
     >
       <button className="iconWrapper profilePic" tabIndex="-1">
         {profilePic ? (
@@ -42,8 +50,12 @@ function ConversationsWrapper({
   unseenConversationCount = 0,
   isConversationOpen = false,
   handleToggleConversationWrapper,
+  handleOpenConversation,
 }) {
   const [selectedConversation, setSelectedConversation] = useState(-1);
+  useEffect(() => {
+    !isConversationOpen && setSelectedConversation(-1);
+  }, [isConversationOpen]);
   return (
     <div
       className={`conversationsContainer ${
@@ -55,6 +67,12 @@ function ConversationsWrapper({
         onClick={() => {
           setSelectedConversation(-1);
           handleToggleConversationWrapper();
+        }}
+        onKeyUp={({ key }) => {
+          if (key === "Enter") {
+            setSelectedConversation(-1);
+            handleToggleConversationWrapper();
+          }
         }}
         tabIndex="0"
       >
@@ -68,6 +86,7 @@ function ConversationsWrapper({
           className={`iconWrapper arrowIcon ${
             isConversationOpen ? "arrowIcon-up" : "arrowIcon-down"
           }`}
+          tabIndex="-1"
         >
           <i className="bi bi-caret-up-fill"></i>
         </button>
@@ -79,12 +98,16 @@ function ConversationsWrapper({
         }`}
       >
         <ul className="conversationContainer">
-          {data.map(({ id, ...chat }) => (
+          {data.map(({ id, ...chat }, idx) => (
             <Conversation
               key={chat.id}
               {...chat}
               isSelected={id === selectedConversation}
-              handleSelectedConversation={() => setSelectedConversation(id)}
+              handleSelectedConversation={() => {
+                setSelectedConversation(id);
+              }}
+              handleOpenConversation={() => handleOpenConversation(true)}
+              isFocusable={!!isConversationOpen}
             />
           ))}
         </ul>
@@ -93,31 +116,45 @@ function ConversationsWrapper({
   );
 }
 
-function Conversations() {
+function Conversations({ handleShowAccountInfo }) {
   const [toggleConversationWrapper, setToggleConversationWrapper] =
     useState("active");
+  const [conversationOpen, setConversationOpen] = useState(false);
   return (
     <>
-      <ConversationsWrapper
-        conversationTitle="Active Conversations"
-        unseenConversationCount={2}
-        isConversationOpen={toggleConversationWrapper === "active"}
-        handleToggleConversationWrapper={() =>
-          setToggleConversationWrapper((prevVal) =>
-            prevVal === "active" ? "" : "active"
-          )
-        }
-      />
-      <ConversationsWrapper
-        conversationTitle="Archived Conversations"
-        unseenConversationCount={2}
-        isConversationOpen={toggleConversationWrapper === "archived"}
-        handleToggleConversationWrapper={() =>
-          setToggleConversationWrapper((prevVal) =>
-            prevVal === "archived" ? "" : "archived"
-          )
-        }
-      />
+      {conversationOpen && (
+        <ConversationMessages
+          handleCloseConversation={() => setConversationOpen(false)}
+        />
+      )}
+
+      {!conversationOpen && (
+        <>
+          <Header handleShowAccountInfo={handleShowAccountInfo} />
+          <ConversationsWrapper
+            conversationTitle="Archived Conversations"
+            unseenConversationCount={2}
+            isConversationOpen={toggleConversationWrapper === "archived"}
+            handleToggleConversationWrapper={() =>
+              setToggleConversationWrapper((prevVal) =>
+                prevVal === "archived" ? "" : "archived"
+              )
+            }
+            handleOpenConversation={(isOpen) => setConversationOpen(isOpen)}
+          />
+          <ConversationsWrapper
+            conversationTitle="Active Conversations"
+            unseenConversationCount={2}
+            isConversationOpen={toggleConversationWrapper === "active"}
+            handleToggleConversationWrapper={() =>
+              setToggleConversationWrapper((prevVal) =>
+                prevVal === "active" ? "" : "active"
+              )
+            }
+            handleOpenConversation={(isOpen) => setConversationOpen(isOpen)}
+          />
+        </>
+      )}
     </>
   );
 }

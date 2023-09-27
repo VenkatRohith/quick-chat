@@ -10,6 +10,7 @@ function Header({ handleShowAccountInfo }) {
       <button
         className="iconWrapper profilePic"
         onClick={handleShowAccountInfo}
+        title="Account Info"
       >
         <i className="bi bi-person-circle"></i>
       </button>

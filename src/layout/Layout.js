@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import AccountInfo from "../features/AccountInfo";
-//import ConversationMessages from "../features/ConversationMessages";
 import Conversations from "../features/Conversations";
 import UserSettings from "../features/UserSettings";
-import Header from "./Header";
+import { selectAccountInfo } from "../store/accountInfo/accountInfoSlice";
 import "./Layout.scss";
 
 function Layout() {
   const [showAccountInfo, setShowAccountInfo] = useState(false);
   const [showSettings, setShowSettings] = useState(false);
+  const { activeStatus: _, ...userDetails } = useSelector(selectAccountInfo);
   return (
     <div className="layout">
       {showAccountInfo ? (
@@ -20,14 +21,15 @@ function Layout() {
           <UserSettings
             showSettings={showSettings}
             handleCloseSettings={() => setShowSettings(false)}
+            userValues={userDetails}
           />
         </>
       ) : (
         <>
-          <Header handleShowAccountInfo={() => setShowAccountInfo(true)} />
           <div className="layout__body">
-            <Conversations />
-            {/* <ConversationMessages /> */}
+            <Conversations
+              handleShowAccountInfo={() => setShowAccountInfo(true)}
+            />
           </div>
         </>
       )}

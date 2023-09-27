@@ -6,11 +6,11 @@
   z-index: 1000;
   left: 0;
   top: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100dvw;
+  height: 100dvh;
   overflow: auto;
-  background-color: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(1.2rem);
+  background-color: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(0.25rem);
   transition: opacity 0.15s linear;
 }
 
@@ -31,10 +31,17 @@
     position: relative;
     width: 100%;
     background-color: rgb(255, 255, 255);
-    box-shadow: 0 0.125rem 4rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.225rem 4rem rgba(0, 0, 0, 0.1);
     outline: none;
     border-radius: 0.5em;
     max-height: 100%;
+
+    @media (prefers-color-scheme: dark) {
+      & {
+        color: rgb(238, 238, 238);
+        background-color: rgb(18, 18, 18);
+      }
+    }
 
     &.scrollable {
       overflow: hidden;

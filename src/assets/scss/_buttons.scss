@@ -21,14 +21,6 @@
     }
   }
 
-  &:disabled {
-    cursor: not-allowed;
-    color: rgb(108, 117, 125);
-    background-color: transparent;
-    border-color: rgb(108, 117, 125);
-    opacity: 0.65;
-  }
-
   &.primary {
     border-color: transparent;
     background-color: rgb(15, 76, 255);
@@ -44,6 +36,14 @@
         box-shadow: none;
       }
     }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    color: rgb(108, 117, 125);
+    background-color: transparent;
+    border-color: rgb(108, 117, 125);
+    opacity: 0.65;
   }
 
   &.secondary {
