@@ -5,7 +5,7 @@ function Header({ handleShowAccountInfo }) {
         <button className="iconWrapper logo">
           <i className="bi bi-chat-quote"></i>
         </button>
-        <h1 className="title">TestChat_CI</h1>
+        <h1 className="title">TestChat_CI_CD</h1>
       </div>
       <button
         className="iconWrapper profilePic"
