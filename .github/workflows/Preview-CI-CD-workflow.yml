@@ -43,6 +43,4 @@ jobs:
         with:
           source-dir: ./build/
           preview-branch: gh-pages
-          umbrella-dir: pr-preview
-          action: auto
           token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
