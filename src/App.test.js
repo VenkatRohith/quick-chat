@@ -11,5 +11,5 @@ test("renders App", () => {
     </Provider>
   );
 
-  expect(screen.getByText("TestChat_CI")).toBeInTheDocument();
+  expect(screen.getByText("TestChat_CI_CD")).toBeInTheDocument();
 });
