@@ -32,7 +32,7 @@ jobs:
     - run: pnpm run build --if-present
     - run: pnpm test
     - name: Deploy
-      uses: venkatrohith/quick-chat@v1
+      uses: crazy-max/ghaction-github-pages@v1
       with:
         target_branch: gh-pages
         build_dir: build
