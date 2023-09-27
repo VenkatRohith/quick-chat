@@ -41,7 +41,7 @@ jobs:
       - name: Deploy 🚀
         uses: rossjrw/pr-preview-action@v1.4
         with:
-          source-dir: .
+          source-dir: ./build/
           preview-branch: gh-pages
           umbrella-dir: pr-preview
           action: auto
