@@ -1,14 +1,16 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
-name: Prod CI & CD
+name: Prod Build & Deploy
 
 on:
   push:
-    branches: ["main"]
+    branches:
+      - main
 
 jobs:
-  build:
+  build-and-deploy:
+    concurrency: ci-${{ github.ref }}
     runs-on: ubuntu-latest
 
     strategy:
@@ -16,8 +18,11 @@ jobs:
         node-version: [18.x]
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Install, Build and Test via Pnpm 🔧
+        uses: pnpm/action-setup@v2.4.0
         with:
           version: 8
       - name: Use Node.js ${{ matrix.node-version }}
@@ -26,12 +31,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
       - run: pnpm install
-      - run: pnpm run build --if-present
+      - run: pnpm run build
       - run: pnpm test
-      - name: Deploy
-        uses: crazy-max/ghaction-github-pages@v4
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4.4.3
         with:
-          target_branch: gh-pages
-          build_dir: build
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+          folder: build
+          token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
