@@ -42,5 +42,3 @@ jobs:
         uses: rossjrw/pr-preview-action@v1.4
         with:
           source-dir: ./build/
-          preview-branch: gh-pages
-          token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
