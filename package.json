@@ -2,7 +2,7 @@
   "name": "quick-chat",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://venkatrohith.github.io/quickchat",
+  "homepage": "https://venkatrohith.github.io/quick-chat",
   "description": "Simple chat application to learn responsiveness & accessibility",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
@@ -29,7 +29,7 @@
   },
   "scripts": {
     "predeploy": "pnpm run build",
-    "deploy": "gh-pages -d feature/layout build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
