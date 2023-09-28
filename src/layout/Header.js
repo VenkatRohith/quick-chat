@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 function Header({ handleShowAccountInfo }) {
   return (
     <div className="layout__header">
@@ -17,5 +18,9 @@ function Header({ handleShowAccountInfo }) {
     </div>
   );
 }
+
+Header.propTypes = {
+  handleShowAccountInfo: PropTypes.func,
+};
 
 export default Header;
