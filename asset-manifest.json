@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/quick-chat/static/css/main.4de80706.css",
+    "main.css": "/quick-chat/static/css/main.58355f19.css",
     "main.js": "/quick-chat/static/js/main.5398dc50.js",
     "static/js/998.031452ec.chunk.js": "/quick-chat/static/js/998.031452ec.chunk.js",
     "static/media/bootstrap-icons.woff?": "/quick-chat/static/media/bootstrap-icons.449ad8adf6ae0424b7ed.woff",
@@ -42,12 +42,12 @@
     "static/media/poppins-black-webfont.woff2": "/quick-chat/static/media/poppins-black-webfont.a156d458744a3b4e574a.woff2",
     "static/media/poppins-extralight-webfont.woff2": "/quick-chat/static/media/poppins-extralight-webfont.b67e9f9e617371e541ec.woff2",
     "index.html": "/quick-chat/index.html",
-    "main.4de80706.css.map": "/quick-chat/static/css/main.4de80706.css.map",
+    "main.58355f19.css.map": "/quick-chat/static/css/main.58355f19.css.map",
     "main.5398dc50.js.map": "/quick-chat/static/js/main.5398dc50.js.map",
     "998.031452ec.chunk.js.map": "/quick-chat/static/js/998.031452ec.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4de80706.css",
+    "static/css/main.58355f19.css",
     "static/js/main.5398dc50.js"
   ]
 }
