@@ -30,8 +30,8 @@ dependencies:
     specifier: 5.0.1
     version: 5.0.1(@babel/plugin-syntax-flow@7.22.5)(@babel/plugin-transform-react-jsx@7.22.5)(eslint@8.46.0)(react@18.2.0)(sass@1.57.1)(typescript@4.9.5)
   web-vitals:
-    specifier: ^3.4.0
-    version: 3.4.0
+    specifier: ^3.5.0
+    version: 3.5.0
 
 devDependencies:
   '@testing-library/jest-dom':
@@ -10504,8 +10504,8 @@ packages:
       minimalistic-assert: 1.0.1
     dev: false
 
-  /web-vitals@3.4.0:
-    resolution: {integrity: sha512-n9fZ5/bG1oeDkyxLWyep0eahrNcPDF6bFqoyispt7xkW0xhDzpUBTgyDKqWDi1twT0MgH4HvvqzpUyh0ZxZV4A==}
+  /web-vitals@3.5.0:
+    resolution: {integrity: sha512-f5YnCHVG9Y6uLCePD4tY8bO/Ge15NPEQWtvm3tPzDKygloiqtb4SVqRHBcrIAqo2ztqX5XueqDn97zHF0LdT6w==}
     dev: false
 
   /webidl-conversions@4.0.2:
