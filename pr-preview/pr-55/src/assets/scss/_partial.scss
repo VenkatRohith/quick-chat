@@ -1,9 +1,0 @@
-// bootstrap-icons fix - issue is still open in parcel - https://github.com/parcel-bundler/parcel/issues/6285
-$bootstrap-icons-font-dir: "/node_modules/bootstrap-icons/font/fonts"; // relative to the current file
-@import "bootstrap-icons/font/bootstrap-icons.scss";
-@import "./fonts";
-@import "./icons";
-@import "./variables";
-@import "./base";
-@import "./scrollbar";
-@import "./buttons";
