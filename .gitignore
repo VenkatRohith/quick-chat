@@ -25,3 +25,7 @@ yarn-error.log*
 #workspace settings
 .vscode
 
+#parcel related files
+.parcel-cache/*
+dist/
+

@@ -1,8 +1,8 @@
-# Getting Started with Create React App and Redux
+# Quick Chat
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
-![example workflow](https://github.com/VenkatRohith/quick-chat/actions/workflows/CI-CD-workflow.yml/badge.svg)
+![Prod Workflow](https://github.com/VenkatRohith/quick-chat/actions/workflows/CI-CD-workflow.yml/badge.svg)
 
 ## Available Scripts
 
