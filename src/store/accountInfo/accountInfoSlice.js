@@ -20,7 +20,6 @@ export const accountInfoSlice = createSlice({
       state.activeStatus = activeStatus;
     },
   },
-  extraReducers: {},
 });
 
 export const { setAccountInfo, setActiveStatus } = accountInfoSlice.actions;
