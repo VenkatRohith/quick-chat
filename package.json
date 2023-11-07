@@ -16,7 +16,7 @@
     "predeploy": "pnpm run build",
     "deploy": "gh-pages -d build",
     "start": "parcel",
-    "build": "parcel build --dist-dir build",
+    "build": "parcel build --public-url ./",
     "test": "jest --config=jest.config.js",
     "coverage": "jest --coverage --config=jest.config.js"
   },
